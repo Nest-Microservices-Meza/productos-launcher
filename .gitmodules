@@ -4,3 +4,6 @@
 [submodule "productos-ms"]
 	path = productos-ms
 	url = https://github.com/Nest-Microservices-Meza/productos-ms.git
+[submodule "ordenes-ms"]
+	path = ordenes-ms
+	url = https://github.com/Nest-Microservices-Meza/ordenes-ms.git
