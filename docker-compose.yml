@@ -56,3 +56,18 @@ services:
       - POSTGRES_PASSWORD=123456
       - POSTGRES_DB=ordenesdb
 
+  # pagos microservicio
+  pagos-ms:   
+    build: ./pagos-ms
+    volumes:
+      - ./pagos-ms/src:/usr/src/app/src    
+    command: npm run start:dev
+    ports:
+      - ${PAGOS_MS_PORT}:${PAGOS_MS_PORT}
+    environment:
+      - PORT=${PAGOS_MS_PORT}
+      - STRIPE_SECRET=${STRIPE_SECRET}
+      - STRIPE_SUCCESS_URL=${STRIPE_SUCCESS_URL}
+      - STRIPE_CANCEL_URL=${STRIPE_CANCEL_URL}
+      - STRIPE_ENDPOINT_SECRET=${STRIPE_ENDPOINT_SECRET}
+      - NATS_SERVERS=nats://nats-server:4222
